@@ -26,6 +26,7 @@
 ---
 ## Visit the website
 https://grand-tour-project.onrender.com/
+This app is deployed publicly on Render.
 
 ## How to Use
 
