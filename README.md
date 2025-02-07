@@ -27,42 +27,6 @@
 ## Visit the website
 https://grand-tour-project.onrender.com/
 
-## Setup Instructions
-
-### Prerequisites
-
-- Python 3.8 or newer
-- Flask (backend framework)
-- A modern web browser (e.g., Chrome, Firefox, or Edge)
-
-### Installation Steps
-
-1. **Clone the Repository**:
-   ```bash
-   git clone git@github.com:Elena-Xuki/grand-tour-project.git
-   cd datafly_visualizer
-   ```
-
-2. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the Application**:
-   ```bash
-   python app.py
-   ```
-   Or directly through Flask:
-   ```bash
-   export FLASK_APP=app.py
-   flask run
-   ```
-
-4. **Open in Your Browser**:
-   Navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to start exploring.
-
----
-
 ## How to Use
 
 1. **Upload Data**:
