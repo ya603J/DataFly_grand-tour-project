@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFly: Visualizing High Dimensional Data</title>
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body id="main-body">
+    <!-- Title Bar -->
+    <div id="title-bar">
+        <h1>DataFly: Visualizing High Dimensional Data</h1>
+    </div>
+
+    <div id="main-layout">
+        <!-- Sidebar for Controls -->
+        <div id="sidebar">
+            <div id="toolbar">
+                <!-- Title "DATA" -->
+                <h2>DATA</h2>
+                
+                <!-- First Separator Line under DATA -->
+                <hr class="file-section-divider">
+
+                <!-- File Upload Section -->
+                <form id="data-upload-form" enctype="multipart/form-data">
+                    <div class="file-upload-row">
+                        <label for="main-file-input" class="bold-label">Main File (CSV or Node File):</label>
+                        <input type="file" id="main-file-input" accept=".csv" name="main_file">
+                    </div>
+                    <div class="file-upload-row">
+                        <label for="edge-file-input" class="bold-label">Edge File (optional):</label>
+                        <input type="file" id="edge-file-input" accept=".csv" name="edge_file">
+                    </div>
+
+                    <!-- Dropdown for selecting built-in files -->
+                    <div class="file-upload-row">
+                        <label for="builtin-file-select" class="bold-label">Demo datasets:</label>
+                        <select id="builtin-file-select" name="builtin_file" class="custom-select">
+                            <option value="" selected disabled>Select a demo dataset</option>  <!-- Default option -->
+                            <option value="winequality_12Dx6497">winequality_12Dx6497</option>
+                            <option value="dw256A_10D_1024">dw256A_10D_1024</option>
+                            <option value="cca_5D_20k">cca_5D_20k</option>
+                            <option value="vocabulary_3D_1k">vocabulary_3D_1k</option>
+                        </select>
+                    </div>
+
+                    <!-- Load and Reset Buttons -->
+                    <div class="button-group">
+                        <button type="submit" class="control-button">Load</button>
+                        <button type="button" id="reset-button" class="control-button">Reset</button>
+                    </div>
+                </form>
+
+                <!-- Second Separator Line below Load and Reset Buttons -->
+                <hr class="file-section-divider">
+                
+                <!-- Algorithm Selection -->
+                <div class="slider-group">
+                    <label for="algorithm-select" class="bold-label">Algorithm:</label>
+                    <select id="algorithm-select" name="algorithm">
+                        <option value="PCA" selected>PCA</option>
+                        <option value="UMAP">UMAP</option>
+                    </select>
+                </div>
+
+                <!-- Variance Explained Info -->
+                <div id="variance-info" class="message-indicator">
+                    <p id="variance-message"></p>
+                </div>
+
+                <!-- Projection Selection Sliders -->
+                <div class="slider-group">
+                    <label for="projection1-slider" class="bold-label">Projection 1:</label>
+                    <input type="range" id="projection1-slider" min="1" value="1">
+                    <span id="projection1-value">1</span>
+                </div>
+                <div class="slider-group">
+                    <label for="projection2-slider" class="bold-label">Projection 2:</label>
+                    <input type="range" id="projection2-slider" min="1" value="2">
+                    <span id="projection2-value">2</span>
+                </div>
+
+                <!-- Secondary Controls -->
+                <div id="secondary-controls">
+                    <div class="slider-group">
+                        <label for="transition-speed" class="bold-label">Transition Speed (ms):</label>
+                        <input type="range" id="transition-speed" min="500" max="5000" step="500" value="1500">
+                        <span id="speed-value">1500</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div id="action-buttons">
+                    <button id="go-button" class="control-button">Go</button>
+                    <button id="datafly-button" class="control-button">DataFly</button>
+                   <button id="toggle-labels-button" class="control-button">Toggle Labels</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div id="main-content">
+            <!-- Message Above Canvas -->
+            <div id="info-message">
+                <p id="status-message">Status: Ready to load data and visualize!</p>
+            </div>
+
+            <!-- Canvas Area -->
+            <div id="chart-container">
+                <div id="loading-spinner" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Loading data...</p>
+                </div>
+                <canvas id="chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/kdbush@2.0.0/kdbush.min.js"></script>
+    <script src="../static/script.js"></script>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+</body>
+</html>

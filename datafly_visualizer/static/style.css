@@ -1,0 +1,278 @@
+/* Main Body Styling */
+#main-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+#main-content {
+  height: 100%;
+  width: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title Bar Styling */
+#title-bar {
+  width: 100%;
+  background-color: #034e7b;
+  color: #ffffff;
+  padding: 15px 20px;
+  text-align: left; /* Align title to the left */
+}
+
+#title-bar h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Main Layout */
+#main-layout {
+  display: flex;
+  height: calc(100vh - 50px); /* Full height minus title bar */
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar */
+#sidebar {
+  width: 20%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto; /* Add scrolling for long content */
+}
+
+/* Chart Container */
+#chart-container {
+  position: relative; /* Reference point for child elements like #loading-spinner */
+  flex: 1; /* Expand to fill remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height of container */
+  background-color: #f4f4f4; /* Match the background color with the canvas */
+}
+
+/* Loading Spinner */
+#loading-spinner {
+  position: absolute; /* Position relative to #chart-container */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust alignment for exact centering */
+  z-index: 1000; /* Ensure it is above the canvas */
+  flex-direction: column; /* Stack spinner and text vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #555; /* Neutral gray for text */
+  background-color: rgba(255, 255, 255, 0.3); /* Increased transparency for modern look */
+  padding: 20px 30px;
+  border-radius: 16px; /* Smooth, more rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* More prominent shadow for depth */
+  width: 220px; /* Fixed width for consistent appearance */
+  height: 130px; /* Fixed height for consistent alignment */
+}
+
+.spinner {
+  width: 40px; /* Adjust spinner size */
+  height: 40px; /* Adjust spinner size */
+  border: 4px solid rgba(0, 0, 0, 0.1); /* Subtle gray border */
+  border-top: 4px solid #3690c0; /* Accent color for the spinner */
+  border-radius: 50%; /* Circle shape */
+  animation: spin 1s linear infinite; /* Smooth rotation */
+}
+
+#loading-spinner p {
+  margin-top: 15px; /* Space between spinner and text */
+  color: #333; /* Darker text for readability */
+  font-size: 14px; /* Balanced font size */
+  font-weight: 500; /* Slightly bold for emphasis */
+}
+
+/* Keyframes for Spinner Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Canvas */
+#chart-canvas {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  display: block;
+  background-color: #f4f4f4; /* Match the background color of the chart container */
+  border: none; /* Remove any borders */
+}
+
+/* Toolbar and Controls */
+#toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.file-upload-row {
+  display: flex;
+  flex-direction: column; /* Stack label, input, and file name */
+  gap: 5px; /* Space between elements */
+  margin-bottom: 10px; /* Reduced space between rows */
+  margin-top: 2px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* Buttons */
+.control-button {
+  font-size: 12px;
+  padding: 6px 10px;
+  color: #333;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.control-button:hover {
+  background-color: #d0d0d0;
+}
+
+#datafly-button:hover {
+  background-color: #e0f7fa;
+}
+
+/* Styling for the DATA section header */
+#toolbar h2 {
+  font-size: 15px; 
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin-top: 10px; /* Reduced margin for closer alignment */
+  margin-bottom: 2px; /* Reduced margin to bring title closer to the separator line */
+}
+
+/* Styling for the file section divider */
+.file-section-divider {
+  border: 0;
+  border-top: 1px solid #e0e0e0;  /* Light grey line */
+  margin: 5px 0; /* Reduced margins for closer alignment */
+}
+
+/* Sliders with Same-Line Labels */
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Reduced gap between label and slider */
+  justify-content: space-between;
+}
+
+.slider-group label {
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #034e7b; /* Dark navy blue for slider labels */
+}
+
+/* Slider Styling */
+input[type="range"] {
+  width: 80%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px; 
+  background: #ddd; /* Light purple-blue for the slider track */
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: #3690c0;  /* Medium blue for the slider thumb */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Styling for the progress bar and message */
+#info-message {
+  font-size: 17px;
+  text-align: center;
+  padding: 10px 10px;
+  background-color: #f4f4f4;
+}
+
+progress {
+  width: 100%;  /* Ensure it takes up full width */
+  height: 6px; /* Adjust height to be thinner */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;  /* Rounded corners */
+  background-color: #ddd;  /* Light gray background */
+}
+
+progress::-webkit-progress-value {
+  background-color: #3690c0; /* Same color as the slider thumb */
+  border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #main-layout {
+    flex-direction: column;
+  }
+
+  #sidebar {
+    width: 100%;
+  }
+}
+
+/* Tooltip Styles */
+#tooltip {
+  position: absolute;
+  background: rgba(50, 50, 50, 0.9);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+#tooltip[style*="display: block"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
